@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="PT-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="global.css">
   <title>Desafio SaguiTech</title>
 </head>
+
 <body>
   <div class="main">
     <form action="" class="form_container">
@@ -27,8 +29,80 @@
       <input type="number" id="inss" min="0">
       <label for="issqn">ISSQN</label>
       <input type="number" name="" id="issqn" min="0">
-      <button type="submit">Gerar</button>
+      <button type="button" onclick="isVisibleNotaFiscal()">Gerar</button>
     </form>
+
+
+    <div class="nota_fiscal_container isNotVisible">
+      <div class="tittle">
+        <h2>NOTA FISCAL DE SERVIÇO ELETRÔNICA</h2>
+      </div>
+      <div class="first_info">
+        <p>Número da Nota: 123456</p>
+        <p>Data de emissão: 08/01/2025 14:30</p>
+      </div>
+      <div class="seller_info">
+        <h3>DADOS DO VENDEDOR</h3>
+        <p>Razão Social: Empresa Exemplo LTDA</p>
+        <p>CNPJ: 12.345.678/0001-90</p>
+      </div>
+      <div class="client_info">
+        <h3>DADOS DO CLIENTE</h3>
+        <p>Nome: Cliente Exemplo</p>
+        <p>CPF/CNPJ: 123.456.789-00</p>
+      </div>
+      <div class="second_tittle">
+        <h3>DETALHES DA VENDA</h3>
+      </div>
+      <div class="venda_info">
+        <p>Valor Total da Venda: R$ 1.500,00</p>
+        <p>Itens Vendidos:</p>
+        <p>1. Serviço de Consultoria - Quantidade: 1 - Valor Unitário: R$ 1.500,00
+      </div>
+      <div class="third_tittle">
+        <h3>IMPOSTOS</h3>
+      </div>
+      <table class="table_impostos">
+        <tr>
+          <th>Imposto</th>
+          <th>Porcentagem(%)</th>
+          <th>Valor(R$)</th>
+        </tr>
+        <tr>
+          <th>IRPF</th>
+          <td>15</td>
+          <td>225,00</td>
+        </tr>
+        <tr>
+          <th>PIS</th>
+          <td>1,65</td>
+          <td>24,75</td>
+        </tr>
+        <tr>
+          <th>COFINS</th>
+          <td>7,6</td>
+          <td>114,00</td>
+        </tr>
+        <tr>
+          <th>INSS</th>
+          <td>11</td>
+          <td>165,00</td>
+        </tr>
+        <tr>
+          <th>ISSQN</th>
+          <td>5</td>
+          <td>75,00</td>
+        </tr>
+      </table>
+      <div class="liquid_value">
+        <h3>VALOR LÍQUIDO: R$ 896,25</h3>
+      </div>
+      <div>
+        <h3>OBSERVAÇÕES</h3> 
+        <p>Esta nota fiscal foi emitida de acordo com a legislação vigente. Guarde este documento para fins de comprovação.</p>  
+      </div>
+      <button class="voltar_btn" onclick="isNotVisibleNotaFiscal()">Voltar</button>
+    </div>
   </div>
 </body>
 </html>
