@@ -40,7 +40,7 @@ function isVisibleNotaFiscal(){
     nota_fiscal_container.classList.remove("isNotVisible");
     form_container.classList.add("isNotVisible");
   } else{
-    window.alert("É necessário preencher todos os campos");
+    window.alert("É necessário preencher todos os campos corretamente (Não é permitido número negativo ou em branco)");
   }
   
 }
@@ -108,6 +108,11 @@ function validaForm() {
   for (const input of inputs) {
     if (input.value.trim() === "") {
       return false;
+    }
+    if (input.type === "number"){
+      if(input.value < 0){
+        return false;
+      }
     }
   }
   return true;
