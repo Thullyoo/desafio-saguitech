@@ -25,13 +25,12 @@
       <input type="number" id="pis" min="0">
       <label for="cofins">COFINS</label>
       <input type="number" id="cofins" min="0">
-      <label for="" id="inss">INSS</label>
+      <label for="">INSS</label>
       <input type="number" id="inss" min="0">
       <label for="issqn">ISSQN</label>
       <input type="number" name="" id="issqn" min="0">
       <button type="button" onclick="isVisibleNotaFiscal()">Gerar</button>
     </form>
-
 
     <div class="nota_fiscal_container isNotVisible">
       <div class="tittle">
@@ -39,7 +38,7 @@
       </div>
       <div class="first_info">
         <p>Número da Nota: 123456</p>
-        <p>Data de emissão: 08/01/2025 14:30</p>
+        <p id="date_emittion">Data de emissão: 08/01/2025 14:30</p>
       </div>
       <div class="seller_info">
         <h3>DADOS DO VENDEDOR</h3>
@@ -55,9 +54,10 @@
         <h3>DETALHES DA VENDA</h3>
       </div>
       <div class="venda_info">
-        <p>Valor Total da Venda: R$ 1.500,00</p>
+        <p id="totalValue"></p>
         <p>Itens Vendidos:</p>
-        <p>1. Serviço de Consultoria - Quantidade: 1 - Valor Unitário: R$ 1.500,00
+        <ol id="lista_itens_vendidos">
+        </ol>
       </div>
       <div class="third_tittle">
         <h3>IMPOSTOS</h3>
@@ -70,32 +70,32 @@
         </tr>
         <tr>
           <th>IRPF</th>
-          <td>15</td>
-          <td>225,00</td>
+          <td id="irpfPorcentagem"></td>
+          <td id="irpfValue">225,00</td>
         </tr>
         <tr>
           <th>PIS</th>
-          <td>1,65</td>
-          <td>24,75</td>
+          <td id="pisPorcentagem">1,65</td>
+          <td id="pisValue">24,75</td>
         </tr>
         <tr>
           <th>COFINS</th>
-          <td>7,6</td>
-          <td>114,00</td>
+          <td id="cofinsPorcentagem">7,6</td>
+          <td id="cofinsValue">114,00</td>
         </tr>
         <tr>
           <th>INSS</th>
-          <td>11</td>
-          <td>165,00</td>
+          <td id="inssPorcentagem">11</td>
+          <td id="inssValue">165,00</td>
         </tr>
         <tr>
           <th>ISSQN</th>
-          <td>5</td>
-          <td>75,00</td>
+          <td id="issqnPorcentagem">5</td>
+          <td id="issqnValue">75,00</td>
         </tr>
       </table>
       <div class="liquid_value">
-        <h3>VALOR LÍQUIDO: R$ 896,25</h3>
+        <h3 id="liquid_value"></h3>
       </div>
       <div>
         <h3>OBSERVAÇÕES</h3> 
@@ -104,5 +104,6 @@
       <button class="voltar_btn" onclick="isNotVisibleNotaFiscal()">Voltar</button>
     </div>
   </div>
+  <script src="app.js"></script>
 </body>
 </html>
