@@ -3,6 +3,7 @@ const nota_fiscal_container = document.querySelector(".nota_fiscal_container");
 const form_container = document.querySelector(".form_container");
 
 //INPUTS
+const inputs = document.querySelectorAll("input");
 const inputValorVenda = document.querySelector("#valor_venda");
 const inputItensVendidos = document.querySelector("#itens_vendidos");
 const inputIRPF = document.querySelector("#irpf");
@@ -34,9 +35,14 @@ function isNotVisibleNotaFiscal(){
 }
   
 function isVisibleNotaFiscal(){
-  gerarNotaFiscal();
-  nota_fiscal_container.classList.remove("isNotVisible")
-  form_container.classList.add("isNotVisible")
+  if(validateForm()){
+    gerarNotaFiscal();
+    nota_fiscal_container.classList.remove("isNotVisible");
+    form_container.classList.add("isNotVisible");
+  } else{
+    window.alert("É necessário preencher todos os campos");
+  }
+  
 }
 
 function gerarNotaFiscal(){
@@ -51,7 +57,7 @@ function gerarNotaFiscal(){
   liquidValue += parseFloat(valorImpostoIRPF) + parseFloat(valorImpostoPIS) + parseFloat(valorImpostoCOFINS) + parseFloat(valorImpostoINSS) + parseFloat(valorImpostoISSQN);
 
   dataEmissao.textContent = `Data de emissão: ${data}` 
-  valorTotal.textContent = `Valor Total da Venda: R$ ${inputValorVenda.value}`
+  valorTotal.textContent = `Valor Total da Venda: R$ ${ parseFloat(inputValorVenda.value).toFixed(2)}`
   criaListItens(itensSeparados);
   irpfPorcentagem.textContent = inputIRPF.value;
   pisPorcentagem.textContent = inputPIS.value;
@@ -96,4 +102,13 @@ function criaListItens(itensSeparados){
 function getValorImposto(imposto){
   const numberaleatorio = imposto * (inputValorVenda.value / 100);
   return numberaleatorio.toFixed(2);
+}
+
+function validaForm() {
+  for (const input of inputs) {
+    if (input.value.trim() === "") {
+      return false;
+    }
+  }
+  return true;
 }
