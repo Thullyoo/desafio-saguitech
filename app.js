@@ -35,7 +35,7 @@ function isNotVisibleNotaFiscal(){
 }
   
 function isVisibleNotaFiscal(){
-  if(validateForm()){
+  if(validaForm()){
     gerarNotaFiscal();
     nota_fiscal_container.classList.remove("isNotVisible");
     form_container.classList.add("isNotVisible");
